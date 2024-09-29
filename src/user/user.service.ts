@@ -66,7 +66,7 @@ export class UserService {
 
     const updateFields = Object.keys(updateUserDto).map((key, index) => `${key} = $${index + 2}`).join(', ');
 
-    const query = `UPDATE users SET ${updateFields}, updatedAt = CURRENT_TIMESTAMP WHERE id = $1`;
+    const query = `UPDATE users SET ${updateFields}, updatedat = CURRENT_TIMESTAMP WHERE id = $1`;
     const params = [id, ...Object.values(updateUserDto)];
 
     return db.none(query, params);
